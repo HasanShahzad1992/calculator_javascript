@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main_screen_calculator{height: 40px;width: 100px;border:solid 2px black;margin-left: 240px}
+    </style>
+</head>
+<body>
+<p id="main_screen_calculator">
+</p>
+<div id="main_body_calculator" style="border:solid red">
+    <button style="margin-left: 250px" class="button">
+        1
+    </button>
+    <button class="button">
+        2
+    </button>
+    <button class="button">
+        3
+    </button>
+    <br>
+    <button style="margin-left: 250px" class="button">
+        4
+    </button>
+    <button class="button">
+        5
+    </button>
+    <button class="button">
+        6
+    </button>
+    <br>
+    <button style="margin-left: 250px" class="button">
+        7
+    </button>
+    <button class="button">
+        8
+    </button>
+    <button class="button">
+        9
+    </button>
+    <br>
+    <button style="margin-left: 250px" class="button">
+        +
+    </button>
+    <button class="button">
+        -
+    </button>
+    <button class="button">
+        0
+    </button>
+    <br>
+    <button style="margin-left: 250px" class="button">
+        x
+    </button>
+    <button class="button">
+        /
+    </button>
+    <button class="equals">
+        =
+    </button>
+    <br>
+    <button class="clear_screen">
+        CE
+    </button>
+</div>
+<script>
+    let access_main_screen=document.getElementById("main_screen_calculator");
+    let access_main_body_calculator=document.getElementById("main_body_calculator");
+    access_main_body_calculator.addEventListener("click",function(event){
+        let access_address_button_click=event.target;
+        if(access_address_button_click.className==="button"){
+            let number_or_function_accessed=access_address_button_click.textContent;
+            access_main_screen.append(number_or_function_accessed);}
+        if(access_address_button_click.className==="equals"){
+            let content_expression=access_main_screen.textContent;
+            let result=eval(content_expression);
+            access_main_screen.innerHTML=result;
+        }
+        else if(access_address_button_click.className==="clear_screen"){
+            access_main_screen.innerHTML="0";
+        }
+
+
+    });
+</script>
+</body>
+</html>
